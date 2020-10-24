@@ -15,7 +15,10 @@ const App = () => {
   }, [query]);
 
   const getRecipes = async () => {
-    const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&from=0&to=20&app_key=${APP_KEY}`);
+    const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&from=0&to=20&app_key=${APP_KEY}`, 
+    {
+  mode: 'no-cors'
+});
     const data = await response.json();
     setRecipes(data.hits);
   };
